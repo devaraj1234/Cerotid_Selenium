@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import progressivePages.EnterZipCode;
 import progressivePages.FillDriverDetails;
+import progressivePages.FillFinalDetailsPage;
 import progressivePages.FillPersonalInformation;
 import progressivePages.FillVehicleDetails;
 import progressivePages.HomePage;
@@ -17,6 +18,7 @@ public class GetByQouteTest {
 	FillPersonalInformation fillPI;
 	FillVehicleDetails fillVehicleDetails;
 	FillDriverDetails fillDriverDetails;
+	FillFinalDetailsPage fillFinalDetails ;
 
 	@BeforeTest
 	public void setUpTest() {
@@ -43,7 +45,7 @@ public class GetByQouteTest {
 	public void sendZipCode() throws InterruptedException {
 		EnterZipCode enterZip = new EnterZipCode(driver);
 		enterZip.enterZipCode("75038");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 	}
 
 	@Test(priority = 2)
@@ -105,7 +107,9 @@ public class GetByQouteTest {
 		Thread.sleep(2000);
 		fillDriverDetails.chooseLicenseStatus("Valid");
 		fillDriverDetails.chooseYearLicensed("3 years or more");
+		Thread.sleep(2000);
 		fillDriverDetails.clickAccidentClaimOrNot();
+		Thread.sleep(2000);
 		fillDriverDetails.clickTicketVoilationOrNot();
 		Thread.sleep(2000);
 		fillDriverDetails.clickContinueForNextPage();
@@ -114,6 +118,35 @@ public class GetByQouteTest {
 		Thread.sleep(4000);
 		fillDriverDetails.clickContinueToFinalDetailPage();
 		Thread.sleep(4000);
+	}
+	
+	@Test(priority = 5)
+	public void fillFinalInformation() throws InterruptedException {
+		
+		fillFinalDetails = new FillFinalDetailsPage(driver);
+		fillFinalDetails.hasAutoInsuranceToday();
+		Thread.sleep(2000);
+		fillFinalDetails.autoInsurancePolicyTime("3 to 5 years");
+		Thread.sleep(2000);
+		fillFinalDetails.currentInsuredLimit("$30,000/$60,000 (State Min) or less");
+		Thread.sleep(2000);
+		fillFinalDetails.hasNonAutoPolicy();
+		fillFinalDetails.hasPastAutoPolicyWithUs();
+		Thread.sleep(2000);
+		fillFinalDetails.AutoPolicyStartDate("04012020");
+		fillFinalDetails.policyHolderEmailAddress("jhon.keller2347@gmail.com");
+		Thread.sleep(2000);
+		fillFinalDetails.policyHolderFamilySize("2");
+		Thread.sleep(2000);
+		fillFinalDetails.previousNoOfInjuryClaims("0");
+		fillFinalDetails.clickContinueToSnapShotwPage();
+		Thread.sleep(4000);
+		fillFinalDetails.snapShotEnrolled();
+		fillFinalDetails.snapShotEnrollementOption();
+		Thread.sleep(4000);
+		fillFinalDetails.clickContinueToBundleInsurancePage();
+		Thread.sleep(4000);
+		fillFinalDetails.clickToFinalRatePage();
 	}
 
 //	@AfterTest
