@@ -82,6 +82,7 @@ public class GetByQouteTest {
 		Thread.sleep(4000);
 		fillVehicleDetails.chooseBlindSpotWarning();
 		fillVehicleDetails.clickOnDone();
+		Thread.sleep(4000);
 		fillVehicleDetails.continueToNextPage();
 
 	}
