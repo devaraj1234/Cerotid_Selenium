@@ -36,9 +36,7 @@ public class FillVehicleDetails {
 				.findElement(By.xpath("//*[@name='VehiclesNew_embedded_questions_list_Make']"));
 		List<WebElement> vehicleMakeList = vehicleMakeElement.findElements(By.tagName("li"));
 		for (WebElement selectVehicleMake : vehicleMakeList) {
-			System.out.println(selectVehicleMake.getText());
 			if (selectVehicleMake.getText().equalsIgnoreCase(vehicleMake)) {
-
 				selectVehicleMake.click();
 				break;
 			}
