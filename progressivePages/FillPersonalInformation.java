@@ -36,8 +36,9 @@ public class FillPersonalInformation {
 //	
 	@FindBy(how = How.ID, using = "NameAndAddressEdit_embedded_questions_list_MailingAddress")
 	public WebElement enterAddress;
-	
-	//By streetName = By.xpath("//input[@name='NameAndAddressEdit_embedded_questions_list_MailingAddress']");
+
+	// By streetName =
+	// By.xpath("//input[@name='NameAndAddressEdit_embedded_questions_list_MailingAddress']");
 
 	@FindBy(how = How.ID, using = "NameAndAddressEdit_embedded_questions_list_ApartmentUnit")
 	public WebElement enterAptNo;
@@ -64,26 +65,23 @@ public class FillPersonalInformation {
 		Select select = new Select(selectSuffix);
 		select.selectByVisibleText(suffix);
 	}
-	
+
 	public void enterDob(String dateOfBirth) {
 		enterDOB.sendKeys(dateOfBirth);
 	}
-	
+
 	public void enterStreetAddress(String streetAddress) {
-		System.out.println(streetAddress);	
-		//driver.findElement(streetName).sendKeys(streetAddress);
 		enterAddress.sendKeys(streetAddress);
-		//driver.findElement(By.xpath("//input[@name='NameAndAddressEdit_embedded_questions_list_MailingAddress']")).sendKeys(streetAddress);	
-		}
-	
+	}
+
 	public void enterApartmentNo(String aptNo) {
 		enterAptNo.sendKeys(aptNo);
 	}
-	
+
 	public void selectPOBoxMilitiry() {
 		selectPOBoxMilitiry.click();
 	}
-	
+
 	public void clickStartMyQuote() {
 		clickStartMyQuote.click();
 	}
